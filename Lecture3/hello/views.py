@@ -15,5 +15,12 @@ def david(request):
     return HttpResponse("Hello, David!")
 
 def greet(request, name):
-    return HttpResponse(f"Hello, {name.capitalize()}!")
+    #return HttpResponse(f"Hello, {name.capitalize()}!")
+    return render(request, "hello/greet.html", {
+        "name": name.capitalize()
+        #python dictionary
+        #urls.py runs this function
+        #this function takes name, renders html template, and passes name as context
+        #inside of greet.html, can use the variable using django {{ }}
+    })
 #takes http request and name parameter that allows you to specify that person
